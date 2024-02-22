@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформить заказ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-image: url('https://gas-kvas.com/uploads/posts/2023-02/1675437024_gas-kvas-com-p-dollar-fonovii-risunok-11.jpg');
+            background-size: cover;
+        }
+        h2 {
+            color: #333;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Оформить заказ</h2>
+    <form action="/submit_order" method="post">
+        <label for="quantity">Количество:</label><br>
+        <input type="number" id="quantity" name="quantity"><br>
+
+        <label for="customer_name">Ваше имя:</label><br>
+        <input type="text" id="customer_name" name="customer_name"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="address">Адрес доставки:</label><br>
+        <textarea id="address" name="address"></textarea><br>
+
+        <input type="submit" value="Отправить заказ">
+    </form>
+
+    <!-- Success message will be displayed here -->
+    <div class="success-message" style="display: none;">Заказ успешно отправлен!</div>
+
+    <script>
+        // Показать сообщение о успешной отправке заказа после отправки формы
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+            document.querySelector('.success-message').style.display = 'block'; // Показываем сообщение
+            document.querySelector('form').reset(); // Очищаем форму
+        });
+    </script>
+</body>
+</html>
